@@ -1,0 +1,77 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav{
+  font-family: 'Courier New', Courier, monospace;
+  color:bisque;
+  font-size: larger;
+  margin-top: 50px;
+}
+
+
+:root {
+  --foreground-rgb:0,0, 255;
+  --background-start-rgb: 30,31,18;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 0,0, 255;
+    --background-start-rgb: 0,0,0;
+    --background-end-rgb: 0,0,0;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.navbar{
+  @apply bg-cyan-500 w-full pt-10 pb-3 text-teal-950;
+}
+
+.navpages{
+  @apply font-light text-xl;
+}
+
+.black_btn {
+  @apply rounded-full border border-zinc-50 bg-black py-3 px-6 text-white transition-all hover:bg-white hover:text-black text-center flex items-center justify-center text-sm;
+}
+
+.sumbit_btn {
+  @apply rounded-2xl border-2 border-green-200 bg-gray-500 ml-5 py-1 px-5 text-white transition-all hover:bg-red-400 hover:text-slate-200 text-center flex items-center justify-center;
+}
