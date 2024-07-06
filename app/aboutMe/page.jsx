@@ -14,10 +14,10 @@ const AboutMe = () => {
     textfeed:""
   })
   const sumbitHandler = async(e) => {e.preventDefault();
-
     const response = await fetch('/api/feedback', {
       method: 'POST',
-      body: JSON.stringify({email:preData.email,textfeed:preData.textfeed})
+      headers:{'Content-type':'application/json'},
+      body: JSON.stringify(preData)
     });
 
     if (response.ok) {
@@ -79,6 +79,7 @@ const AboutMe = () => {
           <input
             ref={emailref}
             type="email"
+            name="email"
             placeholder="Enter Your Email Here"
             className="w-1/3 p-2 border-2 border-lime-300"
             onChange={onchangeHandler}
@@ -87,6 +88,7 @@ const AboutMe = () => {
             ref={textref}
             className="p-2 border-2 border-gray-300 block mt-4 w-1/2"
             typeof="String"
+            name="textfeed"
             placeholder="Enter Your Feedback Here"
             onChange={onchangeHandler}
           ></textarea>

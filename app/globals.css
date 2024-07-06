@@ -9,8 +9,6 @@
   font-size: larger;
   margin-top: 50px;
 }
-
-
 :root {
   --foreground-rgb:0,0, 255;
   --background-start-rgb: 30,31,18;
@@ -44,6 +42,10 @@ body {
   }
 }
 
+.noscrol{
+  overflow-x: hidden;
+}
+
 .flex-center {
   @apply flex justify-center items-center;
 }
@@ -61,11 +63,7 @@ body {
 }
 
 .navbar{
-  @apply bg-cyan-500 w-full pt-10 pb-3 text-teal-950;
-}
-
-.navpages{
-  @apply font-light text-xl;
+  @apply bg-cyan-500 w-full text-teal-950;
 }
 
 .black_btn {

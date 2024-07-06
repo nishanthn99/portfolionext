@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
 
-export const POST = async (req,res) => {
+export const POST = async (req) => {
     const { email,textfeed } = await req.json();
 
     // Create a transporter object using SMTP transport
@@ -12,15 +12,11 @@ export const POST = async (req,res) => {
         pass: process.env.EMAIL_PASS,  //Your Gmail password or App Password
       },
     });
-    // if ( !process.env.EMAIL_USER|| !process.env.EMAIL_PASS) {
-    //   console.error('Missing email credentials');
-    //   return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
-    // }
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'nishanthsherugar@gmail.com', // Your email address where you want to receive form submissions
-      subject: 'New Contact Form Submission',
+      subject: 'New Contact Form Submitted:',
       text: `Email: ${email}\nMessage: ${textfeed} this is a mail`,
     };
 

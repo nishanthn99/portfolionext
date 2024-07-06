@@ -4,7 +4,8 @@ Website developed by: Nishanth
 Give a star if you like this.
 You can Connect for any Quary realted on [Linkedin](https://in.linkedin.com/in/nishanth-sherugar) and 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) ![Profile Picture](./portfolio/public/images/profile.JPG)
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+ ![Profile Picture](/portfolio/public/images/profile.JPG)
 
 You can live visit the [website](https://nishanthnportfolio.netlify.app/)
 
