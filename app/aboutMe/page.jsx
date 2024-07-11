@@ -3,100 +3,122 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 const AboutMe = () => {
-  const emailref = new useRef();
-  const textref = new useRef();
+  const emailRef = useRef();
+  const textRef = useRef();
+  const feedname=useRef();
   const reset = () => {
-    emailref.value = "";
-    textref.value = "";
+    setPreData({
+      email: "",
+      feedname:"",
+      textfeed: ""
+
+    });
   };
-  const [preData, setpreData] = useState({
-    email:"",
-    textfeed:""
-  })
-  const sumbitHandler = async(e) => {e.preventDefault();
+
+  const [preData, setPreData] = useState({
+    email: "",
+    feedname:"",
+    textfeed: ""
+  });
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
     const response = await fetch('/api/feedback', {
       method: 'POST',
-      headers:{'Content-type':'application/json'},
+      headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(preData)
     });
 
     if (response.ok) {
       alert('Message sent successfully');
-      setpreData({
-        email: '',
-        textfeed: ''
-      });
+      reset();
     } else {
-      alert('Failed to send message ');
-    }};
+      alert('Failed to send message');
+    }
+  };
 
-
-  const onchangeHandler=(e)=>{
+  const onChangeHandler = (e) => {
     const { name, value } = e.target;
-    setpreData((preData) => ({
+    setPreData((preData) => ({
       ...preData,
       [name]: value
     }));
-  }
+  };
+
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full bg-gray-100 text-amber-950">
       <main className="p-10">
-        <div className="text-2xl text-wrap">
-          This is the My portfolio WebSite built using Next JS 14 Version. The
-          details present in the webpage is the recent updated skillset and
-          education details of me. You can go through that{" "}
+        <div className="text-2xl text-wrap leading-relaxed">
+          This is my portfolio website built using Next.js 14. The details present on the webpage are the most recent updates to my skillset and education. Feel free to explore.
         </div>
-        <div className="text-gray-50 pt-3 text-xl">
-          {" "}
-          For any quaries reach out me...
+        <div className="text-gray-800 pt-3 text-xl">
+          For any queries, reach out to me...
         </div>
         <div className="p-4">
-          <button className="black_btn">
+          <button className="bg-slate-700 hover:bg-teal-700 transition-colors duration-300 text-white font-bold py-2 px-4 rounded">
             <a
-              href="https://drive.google.com/file/d/1L_EsnMWUR5BDdpgI1rV421IjrBQvD8J-/view?usp=sharing"
+              href="https://drive.google.com/file/d/11r-hFIH6V3REcn3OBpAz0QjRds7Ncdsx/view?usp=sharing"
               target="_blank"
-              className="flex"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2"
             >
               <Image
                 src="/images/resume.png"
-                alt="doc Image"
+                alt="Resume"
                 width={20}
-                height={16}
-                className="flex"
+                height={20}
               />
-              Resume Here
+              <span>Resume Here</span>
             </a>
           </button>
         </div>
         <span className="text-green-400 text-xl pl-4">
-          Contact Me:+91 7676729896
+          Contact Me: +91 7676729896
         </span>
       </main>
-      <hr></hr>
+      <hr className="border-gray-700"></hr>
       <div className="p-10 text-start text-lime-600">
-        <form onSubmit={sumbitHandler}>
-          <h1 className="font-bold font-mono text-2xl pb-2">FeedBack Form:</h1>
+        <form onSubmit={submitHandler} className="space-y-6">
+          <h1 className="font-bold font-mono text-2xl pb-2 text-red-600">Feedback Form:</h1>
           <input
-            ref={emailref}
+            ref={emailRef}
             type="email"
             name="email"
             placeholder="Enter Your Email Here"
-            className="w-1/3 p-2 border-2 border-lime-300"
-            onChange={onchangeHandler}
-          ></input>
+            className="w-full sm:w-1/2 p-3 border-2 border-lime-300 rounded bg-gray-800 text-white"
+            onChange={onChangeHandler}
+            value={preData.email}
+          />
+          <input
+            ref={feedname}
+            type="text"
+            name="feedname"
+            placeholder="Enter Your Name Here"
+            className="w-full block sm:w-1/2 p-3 border-2 border-lime-300 rounded bg-gray-800 text-white"
+            onChange={onChangeHandler}
+            value={preData.feedname}
+          />
           <textarea
-            ref={textref}
-            className="p-2 border-2 border-gray-300 block mt-4 w-1/2"
-            typeof="String"
+            ref={textRef}
+            className="block w-full sm:w-1/2 p-3 border-2 border-gray-300 rounded bg-gray-800 text-white"
             name="textfeed"
             placeholder="Enter Your Feedback Here"
-            onChange={onchangeHandler}
+            onChange={onChangeHandler}
+            value={preData.textfeed}
           ></textarea>
-          <div className="w-1/3 py-12 flex justify-between">
-            <button className="sumbit_btn hover:bg-green-500" onClick={reset}>
+          <div className="flex space-x-4">
+            <button
+              type="submit"
+              className="bg-green-600 hover:bg-green-700 transition-colors duration-300 text-white font-bold py-2 px-4 rounded"
+            >
               Submit
             </button>
-            <button className="sumbit_btn">Reset</button>
+            <button
+              type="button"
+              className="bg-red-600 hover:bg-red-700 transition-colors duration-300 text-white font-bold py-2 px-4 rounded"
+              onClick={reset}
+            >Reset
+            </button>
           </div>
         </form>
       </div>

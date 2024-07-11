@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import { NextResponse } from 'next/server';
 
 export const POST = async (req) => {
-    const { email,textfeed } = await req.json();
+    const { email,textfeed,feedname } = await req.json();
 
     // Create a transporter object using SMTP transport
     const transporter = nodemailer.createTransport({
@@ -17,7 +17,7 @@ export const POST = async (req) => {
       from: process.env.EMAIL_USER,
       to: 'nishanthsherugar@gmail.com', // Your email address where you want to receive form submissions
       subject: 'New Contact Form Submitted:',
-      text: `Email: ${email}\nMessage: ${textfeed} this is a mail`,
+      text: `Email: ${email}\nMessage:\n Feedback is Came from: ${feedname} \n FeedBack is: ${textfeed}`,
     };
 
     try {

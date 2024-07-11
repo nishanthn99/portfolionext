@@ -1,18 +1,39 @@
-
-import Link from "next/link"
+import Link from 'next/link';
 
 const Nav = () => {
   return (
     <div>
-      <nav className="navbar flex-col pt-3 pb-1 sm:pt-10 sm:pb-3">
-        <div className="w-full"><Link href='/' className="flex justify-center text-xl sm:text-3xl">Nishanth</Link></div>
-        <div className="sm:w-2/3 w-full flex justify-between sm:justify-between sm:flex ">
-        <div><Link href='/' className="p-10 font-light text-lg sm:text-xl sm:pl-40">Home</Link></div>
-        <div><Link href='/projects' className="font-light  text-lg sm:text-xl">Projects</Link></div>
-        <div><Link href='/skills' className="font-light text-lg sm:text-xl">Skills</Link></div>
-        <div><Link href="/aboutMe" className="pr-10 font-light text-lg sm:text-xl">about</Link> </div></div></nav>
+      <nav className="navbar flex-col py-2 sm:py-4 bg-gray-800 text-white shadow-md">
+        <div className="w-full mb-2">
+          <Link href='/' className="flex justify-center text-xl sm:text-2xl font-bold hover:text-pink-500 transition-colors duration-300">
+            Nishanth
+          </Link>
+        </div>
+        <div className="sm:w-2/3 w-full flex flex-wrap sm:flex-nowrap justify-center sm:justify-between">
+          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+            <Link href='/' className="block px-4 py-2 font-light text-lg sm:text-xl text-center hover:text-orange-400">
+              Home
+            </Link>
+          </div>
+          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+            <Link href='/projects' className="block px-4 py-2 font-light text-lg sm:text-xl text-center hover:text-orange-400">
+              Projects
+            </Link>
+          </div>
+          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+            <Link href='/skills' className="block px-4 py-2 font-light text-lg sm:text-xl text-center hover:text-orange-400">
+              Skills
+            </Link>
+          </div>
+          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+            <Link href="/aboutMe" className="block px-4 py-2 font-light text-lg sm:text-xl text-center hover:text-orange-400">
+              About
+            </Link>
+          </div>
+        </div>
+      </nav>
     </div>
-  )
+  );
 }
 
-export default Nav
+export default Nav;
