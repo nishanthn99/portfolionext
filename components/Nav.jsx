@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Nav = () => {
   return (
     <div className='flex bg-gradient-to-r flex-between from-blue-500 via-purple-500 to-slate-500'>
-      <div className="flex items-center p-4 sm:p-10">
+      <div className="flex items-center p-3 sm:p-10">
           <Link href='/' className="justify-center text-xl text-orange-400 sm:text-2xl font-bold hover:text-pink-500 transition-colors duration-300">
             Nishanth
           </Link>
@@ -11,7 +11,7 @@ const Nav = () => {
         </div>
       <nav className="flex flex-col text-white sm:pr-20">
         <div className="sm:w-2/3 w-full flex flex-wrap sm:flex-nowrap justify-center sm:justify-between">
-          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+          <div className="sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
             <Link href='/' className="block px-4 py-2 text-lg sm:text-xl text-center hover:text-orange-400">
               Home
             </Link>
@@ -26,7 +26,7 @@ const Nav = () => {
               Skills
             </Link>
           </div>
-          <div className="mx-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
+          <div className="ml-2 sm:mx-4 hover:bg-gray-700 rounded-lg transition-colors duration-300">
             <Link href="/aboutMe" className="block px-4 py-2 text-lg sm:text-xl text-center hover:text-orange-400">
               About
             </Link>
