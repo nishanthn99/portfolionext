@@ -3,7 +3,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="w-full bg-gradient-to-r from-green-600 to-teal-700 text-amber-200 shadow-lg">
-      <div className="container mx-auto px-6 py-2 sm:py-4">
+      <div className="container mx-auto px-6 py-2 sm:py-3">
         <div className="flex sm:flex-row justify-between items-center border-b border-teal-700 pb-2 sm:pb-4">
           <div className="text-xs sm:text-lg font-semibold sm:mb-0 text-center sm:text-left">
             Website Developed By:
@@ -18,9 +18,9 @@ const Footer = () => {
             <span className="inline"> Next.js</span>
           </div>
         </div>
-        <div className="flex pt-2 sm:flex-row justify-between items-center">
+        <div className="flex pt-1 sm:flex-row justify-between items-center">
           <a
-            className="flex items-center space-x-2 sm:pt-4 transition-transform duration-300 transform hover:scale-110"
+            className="flex items-center space-x-2 sm:pt-3 transition-transform duration-300 transform hover:scale-110"
             href="https://in.linkedin.com/in/nishanth-sherugar"
             rel="noopener noreferrer"
             target="_blank"
@@ -35,6 +35,7 @@ const Footer = () => {
           </a>
             <a
               href="mailto:nishanthsherugar@gmail.com"
+              target="_blank"
               className="flex items-center space-x-2 sm:pt-4 transition-transform duration-300 transform hover:scale-110"
             >
               <Image

@@ -18,7 +18,9 @@ export default function Home() {
               </p>
               <div className='container flex space-x-3 my-4'>
               <div className='flex p-2 sm:p-4 bg-gradient-to-r from-red-500 to-lime-500  rounded-xl'>
-                <a href='https://drive.google.com/drive/folders/1mgGRF96H9hMcwZZdQ2Bo67w_mPLlQzF8?usp=drive_link'><Image
+                <a href='https://drive.google.com/drive/folders/1mgGRF96H9hMcwZZdQ2Bo67w_mPLlQzF8?usp=drive_link'
+                target="_blank" >
+                <Image
                 src="/images/courseic.png"
                 alt="Profile image"
                 width={30}
@@ -26,7 +28,7 @@ export default function Home() {
                 className="rounded-xl inline"
               />Internship Certificates</a></div>
               <div className='flex p-2 sm:p-4 bg-gradient-to-r from-green-600 to-violet-600 rounded-xl'>
-                <a href='https://drive.google.com/drive/folders/1UCdDdnk17vx8VI2bPRm--B2do3ttcai4?usp=sharing'><Image
+                <a href='https://drive.google.com/drive/folders/1UCdDdnk17vx8VI2bPRm--B2do3ttcai4?usp=sharing' target="_blank"><Image
                 src="/images/internic.png"
                 alt="Profile image"
                 width={30}
@@ -52,7 +54,7 @@ export default function Home() {
             <a href="https://in.linkedin.com/in/nishanth-sherugar" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image src="/images/linkedin.png" width={25} height={25} alt="LinkedIn logo" className="rounded-full" />
             </a>
-            <a href="mailto:nishanthsherugar@gmail.com" className="flex items-center space-x-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300">
+            <a href="mailto:nishanthsherugar@gmail.com" target="_blank" className="flex items-center space-x-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300">
               <Image src="/images/gmail-logo.png" width={25} height={25} alt="Gmail logo" className="rounded-full" />
             </a>
             <a href="https://github.com/nishanthn99/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-shadow duration-300">
