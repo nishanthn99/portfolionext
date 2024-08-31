@@ -46,7 +46,7 @@ const AboutMe = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 text-amber-950">
+    <div className="min-h-screen w-full bg-gradient-to-r from-orange-200 to-violet-200">
       <main className="p-10">
         <div className="text-2xl text-wrap leading-relaxed">
           This is my portfolio website built using Next.js 14. The details present on the webpage are the most recent updates to my skillset and education. Feel free to explore.
@@ -55,7 +55,7 @@ const AboutMe = () => {
           For any queries, reach out to me...
         </div>
         <div className="p-4">
-          <button className="bg-slate-700 hover:bg-teal-700 transition-colors duration-300 text-white font-bold py-2 px-4 rounded">
+          <button className="bg-gradient-to-r from-purple-300 to-pink-600 hover:bg-teal-700 transition-colors duration-300 text-white font-bold py-2 px-4 rounded">
             <a
               href="https://drive.google.com/file/d/11r-hFIH6V3REcn3OBpAz0QjRds7Ncdsx/view?usp=sharing"
               target="_blank"
@@ -73,7 +73,7 @@ const AboutMe = () => {
           </button>
         </div>
         <span className="text-green-400 text-xl pl-4">
-          Contact Me: +91 7676729896
+          Contact Me: <a href="tel:+91 7676729896">+91 7676729896</a>
         </span>
       </main>
       <hr className="border-gray-700"></hr>
@@ -88,7 +88,7 @@ const AboutMe = () => {
             className="w-full sm:w-1/2 p-3 border-2 border-lime-300 rounded bg-gray-800 text-white"
             onChange={onChangeHandler}
             value={preData.email}
-          />
+          required/>
           <input
             ref={feedname}
             type="text"
@@ -97,7 +97,8 @@ const AboutMe = () => {
             className="w-full block sm:w-1/2 p-3 border-2 border-lime-300 rounded bg-gray-800 text-white"
             onChange={onChangeHandler}
             value={preData.feedname}
-          />
+            minLength={4}
+          required/>
           <textarea
             ref={textRef}
             className="block w-full sm:w-1/2 p-3 border-2 border-gray-300 rounded bg-gray-800 text-white"
@@ -105,7 +106,8 @@ const AboutMe = () => {
             placeholder="Enter Your Feedback Here"
             onChange={onChangeHandler}
             value={preData.textfeed}
-          ></textarea>
+            minLength={6}
+          required></textarea>
           <div className="flex space-x-4">
             <button
               type="submit"

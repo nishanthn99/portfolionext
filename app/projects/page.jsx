@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Projects = () => {
   return (
-    <div className="w-full min-h-screen text-gray-800 p-7 font-sans bg-gray-200">
+    <div className="w-full min-h-screen text-gray-800 p-7 font-sans bg-gradient-to-r from-purple-200 to-pink-400">
       <div className="mb-10">
         <h2 className="mb-4 text-3xl text-gray-900">Projects:</h2>
         <ol className="space-y-8">
@@ -41,15 +41,22 @@ const Projects = () => {
             <div className="flex-shrink-0">
               <Image
                 className="rounded"
-                src="/images/web-development.png"  // Add an appropriate image for this project
+                src="/images/pic6.png"  // Add an appropriate image for this project
                 width={300}
-                height={200}
+                height={400}
+                alt="chicken disease project"
+              />
+              <Image
+                className="rounded"
+                src="/images/pic1.png"  // Add an appropriate image for this project
+                width={300}
+                height={400}
                 alt="chicken disease project"
               />
             </div>
             <div className="sm:ml-6 mt-4 sm:mt-0 flex-1">
               <span className="font-bold text-2xl text-lime-600">Chicken Disease Prediction</span>
-              <p className="mt-2 text-gray-600 text-xl">This project is based on the Deep Learning concept of training a model to differentiate and predict diseases present in chickens. It takes both healthy and affected images of chicken fecal matter to predict the disease present in them.</p>
+              <p className="mt-2 text-gray-600 text-xl">This project is based on the Deep Learning concept of training a model to differentiate and predict diseases present in chickens.The project uses Keras and Tensor flow library module to build the CNN model which is efficiently predicts the images according to features upon which they are trained. It takes both healthy and affected images of chicken fecal matter to predict the disease present in them.</p>
             </div>
           </li>
         </ol>

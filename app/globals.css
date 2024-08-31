@@ -62,10 +62,6 @@ body {
   @apply flex justify-between items-center;
 }
 
-.navbar{
-  @apply bg-cyan-500 w-full text-teal-950;
-}
-
 .black_btn {
   @apply rounded-full border border-zinc-50 bg-black py-3 px-6 text-white transition-all hover:bg-white hover:text-black text-center flex items-center justify-center text-sm;
 }

@@ -1,6 +1,6 @@
 const Skills = () => {
   return (
-    <div className="min-h-screen w-full bg-gray-100 p-10 space-y-10">
+    <div className="min-h-screen w-full bg-gradient-to-r from-purple-300 to-yellow-200 p-10 space-y-10">
       {/* Education Details Section */}
       <div className="bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
         <h2 className="mb-4 text-3xl font-bold text-cyan-600">Education Details:</h2>
@@ -9,21 +9,21 @@ const Skills = () => {
           <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
             <h3 className="text-lg font-semibold">Bachelor of Engineering (B.E)</h3>
             <p className="text-sm">Computer Science (CSE)</p>
-            <p className="text-sm">St Joseph Engineering College Byndoor</p>
+            <p className="text-sm">St Joseph Engineering College Mangaluru 575028</p>
             <p className="text-sm">2025</p>
             <p className="text-sm">9.32(CGPA)</p>
           </div>
           {/* Card for Pre-University College */}
           <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
             <h3 className="text-lg font-semibold">Pre-University College (PUC)</h3>
-            <p className="text-sm">Govt. P. U. College Byndoor</p>
+            <p className="text-sm">Govt. PU College Byndoor 576214</p>
             <p className="text-sm">2021</p>
             <p className="text-sm">95%</p>
           </div>
           {/* Card for SSLC */}
           <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
             <h3 className="text-lg font-semibold">SSLC</h3>
-            <p className="text-sm">Govt. High School Byndoor</p>
+            <p className="text-sm">Govt. High School Byndoor 576214</p>
             <p className="text-sm">2019</p>
             <p className="text-sm">91.36%</p>
           </div>
