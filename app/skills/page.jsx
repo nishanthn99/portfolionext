@@ -11,7 +11,7 @@ const Skills = () => {
             <p className="text-sm">Computer Science (CSE)</p>
             <p className="text-sm">St Joseph Engineering College Mangaluru 575028</p>
             <p className="text-sm">2025</p>
-            <p className="text-sm">9.32(CGPA)</p>
+            <p className="text-sm">9.41(CGPA)</p>
           </div>
           {/* Card for Pre-University College */}
           <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
