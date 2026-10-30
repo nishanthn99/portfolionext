@@ -7,7 +7,7 @@ export default function Reveal({ children, className = "", delay = 0, ...props }
 
   return (
     <motion.div
-      className={className}
+      className={`motion-reveal ${className}`.trim()}
       initial={reduceMotion ? false : { opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.16 }}
