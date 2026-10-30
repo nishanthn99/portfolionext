@@ -51,7 +51,7 @@ export default function Home() {
             <a href="/projects" className="text-link">View all projects <span>↗</span></a>
           </Reveal>
           <div className="project-grid">
-            {projects.map((project) => <AnimatedProjectCard key={project.number} project={project} />)}}
+            {projects.map((project) => <AnimatedProjectCard key={project.number} project={project} />)}
           </div>
         </section>
 
