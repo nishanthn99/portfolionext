@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import AnimatedProjectCard from "@/components/AnimatedProjectCard";
 
 const socials = [
   { label: "LinkedIn", href: "https://in.linkedin.com/in/nishanth-sherugar", icon: "/images/linkedin.png" },
@@ -44,34 +46,28 @@ export default function Home() {
         </section>
 
         <section className="selected-work page-container" id="selected-work">
-          <div className="section-heading reveal">
+          <Reveal className="section-heading">
             <div><p className="eyebrow">A FEW THINGS I’VE WORKED ON</p><h2>Selected <span className="serif-accent">work.</span></h2></div>
             <a href="/projects" className="text-link">View all projects <span>↗</span></a>
-          </div>
+          </Reveal>
           <div className="project-grid">
-            {projects.map((project) => (
-              <a key={project.number} href={project.href} target="_blank" rel="noopener noreferrer" className={`project-card ${project.className}`}>
-                <div className="project-card-top"><span>{project.number} / 03</span><span className="project-arrow">{project.symbol}</span></div>
-                <div className="project-art" aria-hidden="true"><div className="art-orbit art-orbit-one" /><div className="art-orbit art-orbit-two" /><span className="art-glyph">{project.number === "01" ? "C." : project.number === "02" ? "AI" : "↗"}</span></div>
-                <div className="project-info"><p className="project-type">{project.type}</p><h3>{project.title}</h3><p>{project.description}</p><span className="project-visit">Explore project ↗</span></div>
-              </a>
-            ))}
+            {projects.map((project) => <AnimatedProjectCard key={project.number} project={project} />)}}
           </div>
         </section>
 
         <section className="about-strip">
-          <div className="page-container about-strip-inner">
+          <Reveal className="page-container about-strip-inner">
             <p className="eyebrow">A LITTLE ABOUT MY APPROACH</p>
             <h2>Good work starts with<br />asking <span className="serif-accent">better questions.</span></h2>
             <div className="about-strip-bottom"><p>I like understanding how things work, building practical solutions, and learning something new with every project.</p><a href="/aboutMe" className="button-dark">More about my journey <span>↗</span></a></div>
-          </div>
+          </Reveal>
         </section>
 
-        <section className="contact-section page-container">
+        <Reveal className="contact-section page-container">
           <p className="eyebrow">HAVE SOMETHING IN MIND?</p>
           <div className="contact-heading"><h2>Let’s make<br /><span className="serif-accent">something matter.</span></h2><a className="contact-circle" href="mailto:nishanthsherugar@gmail.com" aria-label="Email Nishanth">↗</a></div>
           <div className="contact-bottom"><p>Open to opportunities, collaborations, and good conversations.</p><div className="social-row">{socials.map((social) => <a key={social.label} href={social.href} aria-label={social.label} title={social.label} target={social.href.startsWith("http") ? "_blank" : undefined} rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined} className="social-link"><Image src={social.icon} alt="" width={18} height={18} /></a>)}</div></div>
-        </section>
+        </Reveal>
       </main>
     </div>
   );
