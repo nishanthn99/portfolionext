@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 
 export default function SkillBar({ skill, index = 0 }) {
@@ -15,7 +16,7 @@ export default function SkillBar({ skill, index = 0 }) {
     >
       <div className="skill-card-heading">
         <div className="skill-icon-wrap">
-          <img src={skill.icon} alt="" width="38" height="38" loading="lazy" />
+          <Image src={skill.icon} alt="" width={38} height={38} sizes="38px" />
         </div>
         <div className="skill-card-copy">
           <h3>{skill.name}</h3>
