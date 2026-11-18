@@ -12,7 +12,7 @@ const links = [
   { href: "/aboutMe", label: "About" },
 ];
 
-function NavigationLinks({ mobile = false, pathname, onNavigate }) {
+function NavigationLinks({ pathname, onNavigate }) {
   return (
     <>
       {links.map((link) => {
@@ -90,7 +90,7 @@ export default function Nav() {
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -8, height: 0 }}
             transition={{ duration: reduceMotion ? 0 : 0.22, ease: "easeOut" }}
           >
-            <NavigationLinks mobile pathname={pathname} onNavigate={() => setMenuOpen(false)} />
+            <NavigationLinks pathname={pathname} onNavigate={() => setMenuOpen(false)} />
           </motion.nav>
         )}
       </AnimatePresence>
