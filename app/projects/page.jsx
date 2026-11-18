@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import ProjectShowcaseCard from "@/components/ProjectShowcaseCard";
-import { motion, useReducedMotion } from "motion/react";
 
 const projects = [
   {
@@ -52,33 +51,7 @@ const internships = [
   },
 ];
 
-function InternshipCard({ internship, index }) {
-  const reduceMotion = useReducedMotion();
-
-  return (
-    <motion.article
-      className="internship-card"
-      initial={reduceMotion ? false : { opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: reduceMotion ? 0 : 0.55, delay: reduceMotion ? 0 : index * 0.1 }}
-    >
-      <div className="internship-logo">
-        <Image src={internship.image} alt={internship.alt} width={160} height={100} sizes="120px" />
-      </div>
-      <div className="internship-copy">
-        <p className="work-card-kicker">EXPERIENCE / 0{index + 1}</p>
-        <h3>{internship.company}</h3>
-        <p>{internship.role}</p>
-        <span>{internship.duration}</span>
-      </div>
-    </motion.article>
-  );
-}
-
 export default function Projects() {
-  const reduceMotion = useReducedMotion();
-
   return (
     <main className="inner-page projects-page">
       <div className="page-container inner-page-content">
@@ -112,7 +85,17 @@ export default function Projects() {
           </div>
           <div className="internship-grid">
             {internships.map((internship, index) => (
-              <InternshipCard key={internship.company} internship={internship} index={index} />
+              <Reveal key={internship.company} className="internship-card" delay={index * 0.1}>
+                <div className="internship-logo">
+                  <Image src={internship.image} alt={internship.alt} width={160} height={100} sizes="120px" />
+                </div>
+                <div className="internship-copy">
+                  <p className="work-card-kicker">EXPERIENCE / 0{index + 1}</p>
+                  <h3>{internship.company}</h3>
+                  <p>{internship.role}</p>
+                  <span>{internship.duration}</span>
+                </div>
+              </Reveal>
             ))}
           </div>
         </section>
