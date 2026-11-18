@@ -21,9 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <MotionLayer />
         <Nav />
-        <div id="main-content">{children}</div>
+        <div id="main-content" tabIndex={-1}>{children}</div>
         <Footer />
       </body>
     </html>
