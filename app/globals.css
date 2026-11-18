@@ -661,3 +661,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .marquee-track { animation: none; }
   .work-card-img, .nav-toggle-line { transition: none; }
 }
+
+@media (max-width: 900px) {
+  .portfolio-home .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .portfolio-home .project-grid { grid-template-columns: 1fr; }
+}
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 3000;
+  padding: 11px 14px;
+  transform: translateY(-160%);
+  background: var(--ink);
+  color: var(--paper-bright);
+  font-size: 12px;
+  transition: transform .18s ease;
+}
+.skip-link:focus { transform: translateY(0); }
