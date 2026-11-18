@@ -1,263 +1,108 @@
-const Skills = () => {
+import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import SkillBar from "@/components/SkillBar";
+
+const education = [
+  {
+    qualification: "Bachelor of Engineering",
+    stream: "Computer Science & Engineering",
+    institution: "St Joseph Engineering College, Mangaluru",
+    year: "2025",
+    result: "9.41 CGPA",
+    index: "01",
+  },
+  {
+    qualification: "Pre-University College",
+    stream: "PUC",
+    institution: "Government PU College, Byndoor",
+    year: "2021",
+    result: "95%",
+    index: "02",
+  },
+  {
+    qualification: "SSLC",
+    stream: "Secondary School",
+    institution: "Government High School, Byndoor",
+    year: "2019",
+    result: "91.36%",
+    index: "03",
+  },
+];
+
+const skills = [
+  { name: "Java Programming", icon: "/images/java.png", level: 90 },
+  { name: "Python Programming", icon: "/images/python.png", level: 90 },
+  { name: "React", icon: "/images/atom.png", level: 90 },
+  { name: "C Programming", icon: "/images/letter-c.png", level: 90 },
+  { name: "MERN Stack", icon: "/images/web-development.png", level: 85 },
+  { name: "Microsoft Office", icon: "/images/office.png", level: 80 },
+  { name: "Android UI Development", icon: "/images/mobile-coding.png", level: 75 },
+  { name: "Git", icon: "/images/code.png", level: 90 },
+  { name: "Database Management", icon: "/images/data-science.png", level: 80 },
+];
+
+const softSkills = ["Problem solving", "Effective communication", "Collaborative working"];
+
+export default function Skills() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-r from-purple-300 to-yellow-200 p-10 space-y-10">
-      {/* Education Details Section */}
-      <div className="bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-        <h2 className="mb-4 text-3xl font-bold text-cyan-600">Education Details:</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Card for Bachelor of Engineering */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <h3 className="text-lg font-semibold">Bachelor of Engineering (B.E)</h3>
-            <p className="text-sm">Computer Science (CSE)</p>
-            <p className="text-sm">St Joseph Engineering College Mangaluru 575028</p>
-            <p className="text-sm">2025</p>
-            <p className="text-sm">9.41(CGPA)</p>
+    <main className="inner-page skills-page">
+      <div className="page-container inner-page-content">
+        <Reveal className="page-heading">
+          <p className="eyebrow">THE FOUNDATION & THE TOOLKIT</p>
+          <h1 className="page-title">Always learning.<br /><span className="serif-accent">Always building.</span></h1>
+          <p className="page-intro-copy">The education, technical foundations, and people skills that shape how I approach software development.</p>
+        </Reveal>
+
+        <section className="page-section" aria-labelledby="education-heading">
+          <div className="inner-section-heading">
+            <div>
+              <p className="eyebrow">WHERE IT STARTED</p>
+              <h2 id="education-heading">Education <span className="serif-accent">journey.</span></h2>
+            </div>
+            <span className="section-count">2019 — 2025</span>
           </div>
-          {/* Card for Pre-University College */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <h3 className="text-lg font-semibold">Pre-University College (PUC)</h3>
-            <p className="text-sm">Govt. PU College Byndoor 576214</p>
-            <p className="text-sm">2021</p>
-            <p className="text-sm">95%</p>
+          <div className="education-grid">
+            {education.map((item, index) => (
+              <Reveal key={item.index} className="education-card" delay={index * 0.08}>
+                <span className="education-index">{item.index}</span>
+                <p className="education-year">{item.year}</p>
+                <h3>{item.qualification}</h3>
+                <p className="education-stream">{item.stream}</p>
+                <p className="education-institution">{item.institution}</p>
+                <span className="education-result">{item.result}</span>
+              </Reveal>
+            ))}
           </div>
-          {/* Card for SSLC */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <h3 className="text-lg font-semibold">SSLC</h3>
-            <p className="text-sm">Govt. High School Byndoor 576214</p>
-            <p className="text-sm">2019</p>
-            <p className="text-sm">91.36%</p>
+        </section>
+
+        <section className="page-section" aria-labelledby="technical-heading">
+          <div className="inner-section-heading">
+            <div>
+              <p className="eyebrow">TOOLS I WORK WITH</p>
+              <h2 id="technical-heading">Technical <span className="serif-accent">skills.</span></h2>
+            </div>
+            <span className="section-count">09 AREAS</span>
           </div>
-        </div>
+          <div className="skills-grid">
+            {skills.map((skill, index) => <SkillBar key={skill.name} skill={skill} index={index} />)}
+          </div>
+          <p className="skills-note">The percentages reflect the proficiency estimates listed in my earlier portfolio, not a standardised assessment.</p>
+        </section>
+
+        <Reveal className="soft-skills-panel">
+          <div className="soft-skills-copy">
+            <p className="eyebrow">HOW I WORK WITH PEOPLE</p>
+            <h2>Beyond the <span className="serif-accent">code.</span></h2>
+            <p>Good software is built by people who listen, work through problems, and learn together.</p>
+            <ul>
+              {softSkills.map((skill) => <li key={skill}><span aria-hidden="true">✳</span>{skill}</li>)}
+            </ul>
+          </div>
+          <div className="soft-skills-art">
+            <Image src="/images/soft-skills.png" alt="Illustration representing collaboration and soft skills" width={300} height={260} sizes="(max-width: 680px) 60vw, 260px" />
+          </div>
+        </Reveal>
       </div>
-
-      {/* Skills Section with Accuracy Levels */}
-      <div className="bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-        <h2 className="text-3xl font-bold text-cyan-500 pb-4">Skills Known:</h2>
-
-        {/* Soft Skills */}
-        <div className="flex items-start space-x-4">
-  <ul className="list-disc pl-5 text-slate-600 text-lg space-y-4 flex-1">
-    <h3 className="text-2xl font-bold text-gray-700 mb-4">Soft Skills:</h3>
-    <li className="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
-      <span>Problem Solving</span>
-    </li>
-    <li className="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
-      <span>Effective Communication</span>
-    </li>
-    <li className="flex items-center space-x-2 transition-transform duration-300 hover:scale-105">
-      <span>Collaborative Working</span>
-    </li>
-  </ul>
-  <img
-    src="/images/soft-skills.png"
-    alt="Collaborative Working"
-    className="w-40 h-auto hover:scale-110 pr-0.5 flex-shrink-0"
-  />
-</div>
-
-      </div>
-
-      {/* Technical Skills Section with Accuracy Levels */}
-      <div className="bg-white p-6 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105">
-        <h3 className="text-2xl font-bold text-gray-700">Technical Skills:</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {/* Card for C Programming */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/java.png" alt="Java Programming" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">Java Programming</h4>
-                <p className="text-sm">90% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  90%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/python.png" alt="Python Programming" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">Python Programming</h4>
-                <p className="text-sm">90% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  90%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/atom.png" alt="React Framework" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">React Framework</h4>
-                <p className="text-sm">90% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  90%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/letter-c.png" alt="C Programming" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">C Programming</h4>
-                <p className="text-sm">90% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  90%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Card for MERN Stack */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/web-development.png" alt="MERN Stack" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">MERN Stack</h4>
-                <p className="text-sm">85% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-blue-600 bg-blue-200">
-                  85%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-blue-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-blue-500 rounded-full" style={{ width: '85%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Card for Microsoft Excel */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/office.png" alt="Microsoft Office" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">Microsoft Office</h4>
-                <p className="text-sm">80% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-gray-600 bg-gray-200">
-                  80%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-gray-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-gray-500 rounded-full" style={{ width: '80%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Card for Android UI Development */}
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/mobile-coding.png" alt="Android UI Development" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">Android UI Development</h4>
-                <p className="text-sm">75% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-green-600 bg-green-200">
-                  75%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-green-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-green-500 rounded-full" style={{ width: '75%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/code.png" alt="Git" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">Git</h4>
-                <p className="text-sm">90% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  90%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '90%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-gray-200 p-4 rounded-lg shadow-md hover:bg-gray-300 transition-colors duration-300">
-            <div className="flex items-center mb-4">
-              <img src="/images/data-science.png" alt="DataBase" className="w-12 h-12 mr-4" />
-              <div>
-                <h4 className="text-lg font-semibold">DataBase Management</h4>
-                <p className="text-sm">80% Proficiency</p>
-              </div>
-            </div>
-            <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <div className="text-xs font-semibold inline-block py-1 px-2 rounded-full text-teal-600 bg-teal-200">
-                  80%
-                </div>
-              </div>
-              <div className="relative flex mb-2 items-center justify-between">
-                <div className="flex-grow h-2 bg-teal-200 rounded-full">
-                  <div className="h-full text-center text-xs text-white bg-teal-500 rounded-full" style={{ width: '80%' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </main>
   );
-};
-
-export default Skills;
+}

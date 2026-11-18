@@ -1,117 +1,105 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
+import ProjectShowcaseCard from "@/components/ProjectShowcaseCard";
 
-const Projects = () => {
+const projects = [
+  {
+    title: "CraveCure",
+    category: "SOCIAL IMPACT · FULL STACK",
+    description: "A donation platform designed to connect donors, NGOs, and recipients through a more organised way to give and receive essential items.",
+    details: "Built around food, clothing, gadgets, and stationery donations, with NGOs helping coordinate requests and delivery.",
+    images: [{ src: "/images/cravecure.jpg", alt: "CraveCure project interface" }],
+  },
+  {
+    title: "Travel Management System",
+    category: "WEB DEVELOPMENT · DATABASE",
+    description: "A travel-planning website that connects a frontend experience to a MySQL-backed system for storing customer details and managing bookings.",
+    images: [{ src: "/images/projdatabase.png", alt: "Travel management database project" }],
+  },
+  {
+    title: "Chicken Disease Prediction",
+    category: "MACHINE LEARNING · DEEP LEARNING",
+    description: "A convolutional neural network project that classifies chicken disease imagery using a model trained on healthy and affected samples.",
+    details: "Developed using Keras and TensorFlow.",
+    images: [
+      { src: "/images/pic6.png", alt: "Chicken disease prediction project screen one" },
+      { src: "/images/pic1.png", alt: "Chicken disease prediction project screen two" },
+    ],
+  },
+  {
+    title: "Project Showcase Website",
+    category: "WORDPRESS · WEB DESIGN",
+    description: "A WordPress website created to present academic projects through a simple visual showcase, using a drag-and-drop publishing workflow.",
+    images: [{ src: "/images/aicteproj.jpg", alt: "Academic project showcase" }],
+  },
+];
+
+const internships = [
+  {
+    company: "Vault of Code",
+    role: "Frontend Web Development with React",
+    duration: "1 month",
+    image: "/images/logo.png",
+    alt: "Vault of Code logo",
+  },
+  {
+    company: "Infosys Limited",
+    role: "System Engineer",
+    duration: "Jan 2025 – Present",
+    image: "/images/Infosys.png",
+    alt: "Infosys logo",
+  },
+];
+
+export default function Projects() {
   return (
-    <div className="w-full min-h-screen text-gray-800 p-7 font-sans bg-gradient-to-r from-purple-200 to-pink-400">
-      <div className="mb-10">
-        <h2 className="mb-4 text-3xl text-gray-900">Projects:</h2>
-        <ol className="space-y-8">
-          <li className="p-6 bg-white hover:scale-105 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 flex flex-col sm:flex-row">
-            <div className="flex-shrink-0">
-              <Image
-                className="rounded"
-                src="/images/projdatabase.png"
-                width={400}
-                height={400}
-                alt="dbms project"
-                layout="intrinsic"
-              />
+    <main className="inner-page projects-page">
+      <div className="page-container inner-page-content">
+        <Reveal className="page-heading">
+          <p className="eyebrow">SELECTED WORK & EXPERIENCE</p>
+          <h1 className="page-title">Ideas made <span className="serif-accent">tangible.</span></h1>
+          <p className="page-intro-copy">A collection of projects, experiments, and experiences that reflect what I enjoy learning and building.</p>
+        </Reveal>
+
+        <section className="page-section" aria-labelledby="project-list-heading">
+          <div className="inner-section-heading">
+            <div>
+              <p className="eyebrow">PROJECT ARCHIVE</p>
+              <h2 id="project-list-heading">Things I’ve <span className="serif-accent">built.</span></h2>
             </div>
-            <div className="sm:ml-6 mt-4 sm:mt-0 flex-1">
-              <span className="font-bold text-2xl text-lime-600">Travel Management System</span>
-              <p className="mt-2 text-gray-600 text-xl">This project is about finding the solution for the tourists in travel planning. The Website with frontend UI connected to the database of MySQL at backend which services for storing the customer data and customers to view and make booking.</p>
+            <span className="section-count">04 PROJECTS</span>
+          </div>
+          <div className="work-grid">
+            {projects.map((project, index) => (
+              <ProjectShowcaseCard key={project.title} project={project} index={index} />
+            ))}
+          </div>
+        </section>
+
+        <section className="page-section experience-section" aria-labelledby="experience-heading">
+          <div className="inner-section-heading">
+            <div>
+              <p className="eyebrow">LEARNING THROUGH PRACTICE</p>
+              <h2 id="experience-heading">Experience & <span className="serif-accent">internships.</span></h2>
             </div>
-          </li>
-          <li className="p-6 bg-white hover:scale-105 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 flex flex-col sm:flex-row">
-            <div className="flex-shrink-0">
-              <Image
-                className="rounded"
-                src="/images/aicteproj.jpg"
-                width={400}
-                height={400}
-                alt="ideal lab project"
-              />
-            </div>
-            <div className="sm:ml-6 mt-4 sm:mt-0 flex-1">
-              <span className="font-bold text-2xl text-lime-600">WordPress Website to Show Projects</span>
-              <p className="mt-2 text-gray-600 text-xl">The project is about creating a simple WordPress project to showcase the academic project done. Using the drag and drop features of WordPress. The website displays the image of the project with a description about the same.</p>
-            </div>
-          </li>
-          <li className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 flex flex-col hover:scale-105 sm:flex-row">
-            <div className="flex-shrink-0">
-              <Image
-                className="rounded"
-                src="/images/pic6.png"  // Add an appropriate image for this project
-                width={300}
-                height={400}
-                alt="chicken disease project"
-              />
-              <Image
-                className="rounded"
-                src="/images/pic1.png"  // Add an appropriate image for this project
-                width={300}
-                height={400}
-                alt="chicken disease project"
-              />
-            </div>
-            <div className="sm:ml-6 mt-4 sm:mt-0 flex-1">
-              <span className="font-bold text-2xl text-lime-600">Chicken Disease Prediction</span>
-              <p className="mt-2 text-gray-600 text-xl">This project is based on the Deep Learning concept of training a model to differentiate and predict diseases present in chickens.The project uses Keras and Tensor flow library module to build the CNN model which is efficiently predicts the images according to features upon which they are trained. It takes both healthy and affected images of chicken fecal matter to predict the disease present in them.</p>
-            </div>
-          </li>
-          <li className="p-6 bg-white hover:scale-105 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 flex flex-col sm:flex-row">
-            <div className="flex-shrink-0">
-              <Image
-                className="rounded"
-                src="/images/cravecure.jpg"
-                width={400}
-                height={400}
-                alt="major project"
-              />
-            </div>
-            <div className="sm:ml-6 mt-4 sm:mt-0 flex-1">
-              <span className="font-bold text-2xl text-lime-600">Crave Cure</span>
-              <p className="mt-2 text-gray-600 text-xl">A web-based platform designed to connect donors, NGOs, and recipients seamlessly. 
-CraveCure is an innovative web-based platform designed to connect donors with underprivileged communities, focusing on essential items like food, clothing, and gadgets.</p>
-            </div>
-          </li>
-        </ol>
+          </div>
+          <div className="internship-grid">
+            {internships.map((internship, index) => (
+              <Reveal key={internship.company} className="internship-card" delay={index * 0.1}>
+                <div className="internship-logo">
+                  <Image src={internship.image} alt={internship.alt} width={160} height={100} sizes="120px" />
+                </div>
+                <div className="internship-copy">
+                  <p className="work-card-kicker">EXPERIENCE / 0{index + 1}</p>
+                  <h3>{internship.company}</h3>
+                  <p>{internship.role}</p>
+                  <span>{internship.duration}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
       </div>
-      <div>
-        <h2 className="mb-4 text-3xl text-gray-900">Internships:</h2>
-        <ol className="space-y-8">
-          <li className="p-6 bg-white rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-            <Image
-              className="rounded"
-              src="/images/logo.png"  // Add an appropriate image for this project
-              width={200}
-              height={200}
-              alt="vault of code"
-            />
-            <div className="flex-1">
-              <div className="text-xl font-light text-green-600">Company name: <span className="font-bold text-gray-800">Vault of Code</span></div>
-              <div className="text-xl font-light text-green-600">Domain: <span className="font-bold text-gray-800">Frontend Web Development with React</span></div>
-              <div className="text-xl font-light text-green-600">Duration: <span className="font-bold text-gray-800">1 month</span></div>
-            </div>
-          </li>
-          <li className="p-6 bg-white rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-            <Image
-              className="rounded"
-              src="/images/infosys.png"  // Add an appropriate image for this project
-              width={200}
-              height={200}
-              alt="Infosys Limited"
-            />
-            <div className="flex-1">
-              <div className="text-xl font-light text-green-600">Company name: <span className="font-bold text-gray-800">Infosys Limited</span></div>
-              <div className="text-xl font-light text-green-600">Role: <span className="font-bold text-gray-800">System Engineer</span></div>
-              <div className="text-xl font-light text-green-600">Duration: <span className="font-bold text-gray-800">Jan 2025 -Present</span></div>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </div>
+    </main>
   );
 }
-
-export default Projects;
